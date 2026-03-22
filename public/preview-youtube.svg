@@ -1,0 +1,61 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="30" x2="1474" y2="850" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#221019"/>
+      <stop offset="0.55" stop-color="#161322"/>
+      <stop offset="1" stop-color="#0D0F18"/>
+    </linearGradient>
+    <radialGradient id="redGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(416 280) rotate(45) scale(300 300)">
+      <stop stop-color="#FF9F9F" stop-opacity="0.74"/>
+      <stop offset="1" stop-color="#FF9F9F" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="frame" x1="150" y1="136" x2="1322" y2="692" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#361925" stop-opacity="0.94"/>
+      <stop offset="1" stop-color="#1A1831" stop-opacity="0.96"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="250" y1="234" x2="1000" y2="588" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7B7B" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#7C8BFF" stop-opacity="0.18"/>
+    </linearGradient>
+    <linearGradient id="chart" x1="1124" y1="246" x2="1322" y2="566" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF8E8E"/>
+      <stop offset="1" stop-color="#FF3B3B"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" rx="44" fill="url(#bg)"/>
+  <circle cx="410" cy="292" r="240" fill="url(#redGlow)"/>
+
+  <rect x="130" y="132" width="1340" height="638" rx="40" fill="url(#frame)" stroke="#FF5B5B" stroke-opacity="0.16" stroke-width="4"/>
+  <rect x="162" y="162" width="1276" height="34" rx="17" fill="white" fill-opacity="0.12"/>
+
+  <rect x="178" y="226" width="866" height="372" rx="28" fill="#15182A"/>
+  <rect x="178" y="226" width="866" height="372" rx="28" fill="url(#hero)"/>
+  <rect x="214" y="264" width="286" height="46" rx="23" fill="#1A1220" fill-opacity="0.84" stroke="#FF6767" stroke-opacity="0.22" stroke-width="2"/>
+  <rect x="244" y="281" width="164" height="12" rx="6" fill="#FFD9D9"/>
+
+  <circle cx="480" cy="408" r="126" fill="white" fill-opacity="0.07"/>
+  <path d="M424 338C490.274 338 544 391.503 544 457.5C544 494.163 527.287 527.056 500.981 549.048C562.286 580.382 605 644.742 605 718.5V754H243V718.5C243 644.742 285.714 580.382 347.019 549.048C320.713 527.056 304 494.163 304 457.5C304 391.503 357.726 338 424 338Z" fill="#FFE5E5" fill-opacity="0.12"/>
+  <rect x="610" y="438" width="366" height="96" rx="24" fill="#120E1C" fill-opacity="0.72" stroke="white" stroke-opacity="0.07" stroke-width="2"/>
+  <rect x="644" y="468" width="224" height="14" rx="7" fill="#FFD5D5"/>
+  <rect x="644" y="494" width="182" height="12" rx="6" fill="white" fill-opacity="0.16"/>
+  <rect x="886" y="468" width="58" height="20" rx="10" fill="#FF3B3B" fill-opacity="0.2"/>
+
+  <rect x="1088" y="226" width="302" height="372" rx="28" fill="#101322" stroke="white" stroke-opacity="0.08" stroke-width="2"/>
+  <rect x="1124" y="266" width="230" height="16" rx="8" fill="white" fill-opacity="0.14"/>
+  <path d="M1128 530C1168 468 1204 452 1238 460C1268 466 1296 496 1322 402" stroke="url(#chart)" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="1322" cy="402" r="12" fill="#FF6161"/>
+  <rect x="1128" y="566" width="180" height="12" rx="6" fill="#FFBABA" fill-opacity="0.3"/>
+  <rect x="1128" y="590" width="224" height="12" rx="6" fill="white" fill-opacity="0.12"/>
+
+  <rect x="180" y="638" width="864" height="26" rx="13" fill="#FF3B3B" fill-opacity="0.2"/>
+  <rect x="180" y="638" width="640" height="26" rx="13" fill="#FF5B5B"/>
+
+  <rect x="180" y="694" width="424" height="18" rx="9" fill="white" fill-opacity="0.14"/>
+  <rect x="180" y="728" width="260" height="18" rx="9" fill="white" fill-opacity="0.1"/>
+  <rect x="472" y="728" width="212" height="18" rx="9" fill="white" fill-opacity="0.1"/>
+
+  <rect x="1142" y="640" width="220" height="94" rx="24" fill="#130F1C" fill-opacity="0.78" stroke="white" stroke-opacity="0.07" stroke-width="2"/>
+  <rect x="1172" y="670" width="94" height="12" rx="6" fill="#FFB6B6" fill-opacity="0.32"/>
+  <rect x="1172" y="694" width="156" height="10" rx="5" fill="white" fill-opacity="0.12"/>
+</svg>

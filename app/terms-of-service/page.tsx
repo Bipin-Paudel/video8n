@@ -12,12 +12,62 @@ export const metadata: Metadata = {
     `Terms of Service for Video8n, an AI video generation and social publishing product owned by ${COMPANY_NAME}.`,
 };
 
+const termsSections = [
+  "1. Acceptance of Terms",
+  "2. Eligibility and Accounts",
+  "3. The Services",
+  "4. User Content and Ownership",
+  "5. AI Labeling",
+  "6. Prohibited Use",
+  "7. TikTok and Third-Party Platform Limitations",
+  "8. Compliance Responsibilities",
+  "9. Suspension and Termination",
+  "10. Intellectual Property",
+  "11. Disclaimers",
+  "12. Limitation of Liability",
+  "13. Changes to the Terms",
+  "14. Contact",
+] as const;
+
 export default function TermsOfServicePage() {
   return (
     <LegalShell
       title="Terms of Service"
       lede={`These Terms of Service govern your access to and use of Video8n, a product of ${COMPANY_NAME}, including our AI video generation workflows, publishing tools, and connected platform integrations.`}
       updatedOn="March 22, 2026"
+      sections={termsSections}
+      summary={[
+        {
+          label: "Company",
+          value: COMPANY_NAME,
+          hint: "Provider of Video8n, its workflows, and connected platform tools.",
+        },
+        {
+          label: "Applies To",
+          value: "All users of Video8n services",
+          hint: "Covers website access, app use, AI-generated media, and platform publishing.",
+        },
+        {
+          label: "Support",
+          value: SUPPORT_EMAIL,
+          hint: "Use this address for legal, account, or service questions.",
+        },
+      ]}
+      highlights={[
+        "Clear user ownership and platform responsibilities",
+        "Automatic AI disclosure and human review",
+        "Cross-platform publishing terms for global use",
+      ]}
+      primaryHelp={{
+        href: `mailto:${SUPPORT_EMAIL}?subject=Video8n%20Terms%20Question`,
+        label: "Contact Legal Support",
+        title: "Questions about these terms",
+        copy: "Need help understanding account responsibilities, content ownership, or platform policy obligations?",
+      }}
+      secondaryHelp={{
+        href: `mailto:${DATA_DELETION_EMAIL}?subject=Video8n%20Data%20Deletion%20Request`,
+        label: "Request connected-platform data deletion",
+      }}
     >
       <LegalSection title="1. Acceptance of Terms">
         <p>

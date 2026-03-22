@@ -12,12 +12,62 @@ export const metadata: Metadata = {
     `Privacy Policy for Video8n, an AI video generation and social publishing product owned by ${COMPANY_NAME}.`,
 };
 
+const privacySections = [
+  "1. Who We Are",
+  "2. Information We Collect",
+  "3. How We Use Personal Data",
+  "4. GDPR Legal Bases",
+  "5. Connected Platform Access and Tokens",
+  "6. AI-Generated Content Metadata",
+  "7. Data Sharing",
+  "8. Retention",
+  "9. International Transfers",
+  "10. Your Rights",
+  "11. Security",
+  "12. Children’s Privacy",
+  "13. Changes to This Policy",
+  "14. Contact",
+] as const;
+
 export default function PrivacyPolicyPage() {
   return (
     <LegalShell
       title="Privacy Policy"
       lede={`This Privacy Policy explains how Video8n, a product of ${COMPANY_NAME}, collects, uses, stores, and shares personal data when users create AI-generated videos and connect social publishing accounts.`}
       updatedOn="March 22, 2026"
+      sections={privacySections}
+      summary={[
+        {
+          label: "Company",
+          value: COMPANY_NAME,
+          hint: "Operator of Video8n and its connected publishing services.",
+        },
+        {
+          label: "Coverage",
+          value: "Website, app, and publishing workflows",
+          hint: "Applies to connected platform uploads and support channels.",
+        },
+        {
+          label: "Privacy Requests",
+          value: DATA_DELETION_EMAIL,
+          hint: "Use this address for deletion and data-rights requests.",
+        },
+      ]}
+      highlights={[
+        "User-authorized publishing data only",
+        "Privacy-first AI processing",
+        "Global compliance and deletion workflows",
+      ]}
+      primaryHelp={{
+        href: `mailto:${SUPPORT_EMAIL}?subject=Video8n%20Privacy%20Question`,
+        label: "Contact Privacy Support",
+        title: "Privacy questions",
+        copy: "Need clarification about how Video8n processes account data, media, or connected platform credentials?",
+      }}
+      secondaryHelp={{
+        href: `mailto:${DATA_DELETION_EMAIL}?subject=Video8n%20Data%20Deletion%20Request`,
+        label: "Submit a Data Deletion Request",
+      }}
     >
       <LegalSection title="1. Who We Are">
         <p>
