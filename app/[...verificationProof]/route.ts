@@ -1,4 +1,9 @@
 import { NextResponse } from "next/server";
+import {
+  buildVerificationResponse,
+  getVerificationConfig,
+  normalizeVerificationPath,
+} from "@/lib/url-ownership";
 
 type RouteContext = {
   params: Promise<{
@@ -6,20 +11,15 @@ type RouteContext = {
   }>;
 };
 
-const normalizePath = (value: string) => value.replace(/^\/+|\/+$/g, "");
-
-export async function GET(_: Request, context: RouteContext) {
-  const expectedPath = normalizePath(
-    process.env.URL_OWNERSHIP_VERIFICATION_PATH ?? "",
-  );
-  const responseBody = process.env.URL_OWNERSHIP_VERIFICATION_CONTENT ?? "";
+const verifyPathRequest = async (context: RouteContext) => {
+  const { expectedPath, responseBody } = getVerificationConfig();
 
   if (!expectedPath || !responseBody) {
     return new NextResponse("Not Found", { status: 404 });
   }
 
   const params = await context.params;
-  const requestedPath = normalizePath(
+  const requestedPath = normalizeVerificationPath(
     (params.verificationProof ?? []).join("/"),
   );
 
@@ -27,14 +27,25 @@ export async function GET(_: Request, context: RouteContext) {
     return new NextResponse("Not Found", { status: 404 });
   }
 
-  return new NextResponse(responseBody.endsWith("\n") ? responseBody : `${responseBody}\n`, {
-    headers: {
-      "Cache-Control": "public, max-age=0, s-maxage=60",
-      "Content-Type":
-        process.env.URL_OWNERSHIP_VERIFICATION_CONTENT_TYPE ??
-        "text/plain; charset=utf-8",
-      "X-Robots-Tag": "noindex",
-    },
-    status: 200,
-  });
+  return null;
+};
+
+export async function GET(_: Request, context: RouteContext) {
+  const errorResponse = await verifyPathRequest(context);
+
+  if (errorResponse) {
+    return errorResponse;
+  }
+
+  return buildVerificationResponse("GET");
+}
+
+export async function HEAD(_: Request, context: RouteContext) {
+  const errorResponse = await verifyPathRequest(context);
+
+  if (errorResponse) {
+    return errorResponse;
+  }
+
+  return buildVerificationResponse("HEAD");
 }

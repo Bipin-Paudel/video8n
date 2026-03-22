@@ -42,7 +42,7 @@ https://your-domain.com/tiktok-verification/tiktok-verification-file.txt
 3. Set `URL_OWNERSHIP_VERIFICATION_PATH` to the exact file path TikTok expects.
 4. Set `URL_OWNERSHIP_VERIFICATION_CONTENT` to the exact file contents.
 5. Redeploy the site on Vercel.
-6. Open the verification URL in the browser and confirm it loads directly over HTTPS.
+6. Open both the prefix URL and the verification file URL in the browser and confirm both load directly over HTTPS.
 7. Return to TikTok and click `Verify`.
 
 ### Examples
@@ -57,6 +57,12 @@ This will resolve at:
 
 ```text
 https://video8n.vercel.app/tiktok-verification/tiktok-verify-123456.txt
+```
+
+The prefix URL will also respond:
+
+```text
+https://video8n.vercel.app/tiktok-verification/
 ```
 
 For a different nested verification file:
