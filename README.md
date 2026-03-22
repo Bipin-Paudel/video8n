@@ -19,10 +19,12 @@ This project includes a flexible ownership-verification route for TikTok's URL p
 
 ### How it works
 
+We keep TikTok verification files under the dedicated `public/tiktok-verification/` path pattern so the verification URL stays predictable.
+
 Set these environment variables locally or in Vercel:
 
 ```bash
-URL_OWNERSHIP_VERIFICATION_PATH=tiktok-verification-file.txt
+URL_OWNERSHIP_VERIFICATION_PATH=tiktok-verification/tiktok-verification-file.txt
 URL_OWNERSHIP_VERIFICATION_CONTENT="paste the exact TikTok verification file contents here"
 URL_OWNERSHIP_VERIFICATION_CONTENT_TYPE="text/plain; charset=utf-8"
 ```
@@ -30,12 +32,12 @@ URL_OWNERSHIP_VERIFICATION_CONTENT_TYPE="text/plain; charset=utf-8"
 The app will then serve that file at:
 
 ```text
-https://your-domain.com/tiktok-verification-file.txt
+https://your-domain.com/tiktok-verification/tiktok-verification-file.txt
 ```
 
 ### TikTok setup flow
 
-1. In TikTok Developer Portal, use `URL prefix` if you are verifying a full site URL like `https://video8n.vercel.app/`.
+1. In TikTok Developer Portal, use `URL prefix` and enter `https://video8n.vercel.app/tiktok-verification/`.
 2. Download the TikTok signature file or copy the exact verification content TikTok gives you.
 3. Set `URL_OWNERSHIP_VERIFICATION_PATH` to the exact file path TikTok expects.
 4. Set `URL_OWNERSHIP_VERIFICATION_CONTENT` to the exact file contents.
@@ -48,25 +50,25 @@ https://your-domain.com/tiktok-verification-file.txt
 For a root-level verification file:
 
 ```bash
-URL_OWNERSHIP_VERIFICATION_PATH=tiktok-verify-123456.txt
+URL_OWNERSHIP_VERIFICATION_PATH=tiktok-verification/tiktok-verify-123456.txt
 ```
 
 This will resolve at:
 
 ```text
-https://video8n.vercel.app/tiktok-verify-123456.txt
+https://video8n.vercel.app/tiktok-verification/tiktok-verify-123456.txt
 ```
 
-For a nested verification file:
+For a different nested verification file:
 
 ```bash
-URL_OWNERSHIP_VERIFICATION_PATH=terms-of-service/tiktok-verify-123456.txt
+URL_OWNERSHIP_VERIFICATION_PATH=tiktok-verification/custom/tiktok-verify-123456.txt
 ```
 
 This will resolve at:
 
 ```text
-https://video8n.vercel.app/terms-of-service/tiktok-verify-123456.txt
+https://video8n.vercel.app/tiktok-verification/custom/tiktok-verify-123456.txt
 ```
 
 ## Deploy on Vercel
