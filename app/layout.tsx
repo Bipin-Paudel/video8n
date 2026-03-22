@@ -13,6 +13,8 @@ const inter = Inter({
   variable: "--font-sans",
 });
 
+const verificationSignature = process.env.URL_OWNERSHIP_VERIFICATION_CONTENT;
+
 export const metadata: Metadata = {
   title: {
     default: "Video8n | Your Content, Everywhere, Instantly.",
@@ -41,6 +43,16 @@ export default function RootLayout({
         className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
       >
         {children}
+        {verificationSignature ? (
+          <div
+            aria-hidden="true"
+            data-url-ownership-verification={verificationSignature}
+            hidden
+            suppressHydrationWarning
+          >
+            {verificationSignature}
+          </div>
+        ) : null}
       </body>
     </html>
   );
